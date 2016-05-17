@@ -1,0 +1,9 @@
+name: StaffChat
+version: 1.0
+author: Skelet
+main: de.Skelet.StaffChat.Main.Main
+
+commands:
+  staff:
+  staffchat:
+  sc:
