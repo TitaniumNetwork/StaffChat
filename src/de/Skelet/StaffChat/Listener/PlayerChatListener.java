@@ -14,11 +14,13 @@ public class PlayerChatListener implements Listener{
 
     @EventHandler
     public void on(AsyncPlayerChatEvent e){
-        if(e.getMessage().startsWith(Main.shortcut)){
-            for(Player p : Bukkit.getOnlinePlayers()){
-                if(!p.hasPermission(Main.perm))continue;
-                p.sendMessage(Main.pr + e.getPlayer().getDisplayName() + " §7» §r" + e.getMessage().replace(e.getMessage().charAt(0) + "", ""));
-                e.setCancelled(true);
+        if(e.getPlayer().hasPermission(Main.perm)) {
+            if (e.getMessage().startsWith(Main.shortcut)) {
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    if (!p.hasPermission(Main.perm)) continue;
+                    p.sendMessage(Main.pr + e.getPlayer().getDisplayName() + " §7» §r" + e.getMessage().replace(e.getMessage().charAt(0) + "", ""));
+                    e.setCancelled(true);
+                }
             }
         }
         if(Main.staff.contains(e.getPlayer())){
